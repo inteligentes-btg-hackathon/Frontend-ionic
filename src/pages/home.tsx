@@ -14,7 +14,7 @@ import {
   IonRow,
   IonCol,
 } from "@ionic/react";
-import "./Home.css";
+import "../styles/home.css";
 
 const Home: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
