@@ -8,7 +8,7 @@ import "../styles/LoadingDarf.css";
 const LoadingDarf: React.FC = () => {
   return (
     <IonContent fullscreen>
-      <IonGrid>
+      <IonGrid className="loading-ion-grid">
         <div className="content-block">
           <Lottie
             animationData={loadingAnimation}
