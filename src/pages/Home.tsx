@@ -1,6 +1,9 @@
 import MessageListItem from "../components/MessageListItem";
 import { useState } from "react";
 import { Message, getMessages } from "../data/messages";
+
+import BTG_LOGO from "../assets/logoBtg.svg";
+
 import {
   IonContent,
   IonHeader,
@@ -30,7 +33,7 @@ const Home: React.FC = () => {
   return (
     <IonPage id="home-page">
       <IonHeader class="header">
-        <img height={50} className={"title-img"} src="assets/logoBtg.png" />
+        <img height={50} className={"title-img"} src={BTG_LOGO} />
       </IonHeader>
       <IonContent fullscreen>
         <IonGrid>
