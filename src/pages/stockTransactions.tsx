@@ -1,5 +1,14 @@
-const StockTransactions: React.FC = () => {
-  return (<></>)
-}
+import { IonPage, IonContent } from "@ionic/react";
+import FacilitaBtgBlock from "../components/FacilitaBtgBlock";
 
-export default StockTransactions
+const StockTransactions: React.FC = () => {
+  return (
+    <IonPage>
+      <IonContent>
+        <FacilitaBtgBlock />
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default StockTransactions;
