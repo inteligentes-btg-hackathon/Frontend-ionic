@@ -8,23 +8,24 @@ interface MomentSelectProps {
 }
 
 const MomentSelect: React.FC<MomentSelectProps> = ({ items, title }) => {
-  let test = [];
   return (
     <div className="contentBlock">
       <h3>{title}</h3>
-      <IonSelect
-        interface="action-sheet"
-        placeholder="Selecione o ano"
-        className="item-select"
-      >
-        {items.map((item) => {
-          return (
-            <IonSelectOption value={item} className="teste">
-              {item}
-            </IonSelectOption>
-          );
-        })}
-      </IonSelect>
+      <IonItem className="sub-block">
+        <IonSelect
+          interface="action-sheet"
+          placeholder="Selecione o ano"
+          className="item-select"
+        >
+          {items.map((item) => {
+            return (
+              <IonSelectOption value={item} className="teste">
+                {item}
+              </IonSelectOption>
+            );
+          })}
+        </IonSelect>
+      </IonItem>
     </div>
   );
 };
