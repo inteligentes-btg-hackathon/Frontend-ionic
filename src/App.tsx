@@ -56,6 +56,9 @@ const App: React.FC = () => (
         <Route path="/successDarf" exact={true}>
           <SuccessDarf/>
         </Route>
+        <Route path="/stockTransactions" exact={true}>
+          <StockTransactions/>
+        </Route>
         <Route path="/message/:id">
           <ViewMessage />
         </Route>
