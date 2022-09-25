@@ -26,6 +26,7 @@ import "./theme/variables.css";
 import AccessOpenInvestment from "./pages/accessOpenInvestment";
 import LoadingDarf from "./pages/LoadingDarf";
 import PendingTaxes from "./pages/pendingTaxes";
+import StockTransactions from "./pages/stockTransactions";
 
 setupIonicReact();
 
@@ -50,6 +51,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/pendingTaxes" exact={true}>
           <PendingTaxes />
+        </Route>
+        <Route path="/stockTransactions" exact={true}>
+          <StockTransactions/>
         </Route>
         <Route path="/message/:id">
           <ViewMessage />
