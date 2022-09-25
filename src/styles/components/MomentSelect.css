@@ -1,0 +1,20 @@
+.item-select{
+  position: initial;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+}
+.teste {
+  background-color: transparent !important;
+}
+ion-select-option {
+  color: #05132A;
+}
+.contentBlock {
+  padding: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
