@@ -24,6 +24,8 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import AccessOpenInvestment from "./pages/accessOpenInvestment";
+import LoadingDarf from "./pages/LoadingDarf";
+import PendingTaxes from "./pages/pendingTaxes";
 
 setupIonicReact();
 
@@ -42,6 +44,12 @@ const App: React.FC = () => (
         </Route>
         <Route path="/historicalDarf" exact={true}>
           <HistoricalDarf />
+        </Route>
+        <Route path="/loading" exact={true}>
+          <LoadingDarf />
+        </Route>
+        <Route path="/pendingTaxes" exact={true}>
+          <PendingTaxes />
         </Route>
         <Route path="/message/:id">
           <ViewMessage />
