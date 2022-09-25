@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ListTabNavigator from "../components/ListTabNavigator";
 import { IonContent, IonPage } from "@ionic/react";
 import MomentSelect from "../components/MomentSelect";
+import NavHeaderDefault from "../components/headers/NavHeaderDefault";
 
 const itemList = [
   {
@@ -54,7 +55,16 @@ const itemList = [
 const PendingTaxes: React.FC = () => {
   return (
     <IonPage>
-      {/* <IonContent> */}
+      <NavHeaderDefault
+        leftArrowClickHandler={() => {
+          alert("left click");
+        }}
+        closeIconClickHandler={() => {
+          alert("close-click");
+        }}
+        showCloseButton
+        showLeftArrow
+      />
       <div>
         <MomentSelect
           title="Ano"
