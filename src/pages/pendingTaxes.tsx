@@ -4,6 +4,10 @@ import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import ListTabNavigator from "../components/ListTabNavigator";
+import { IonContent, IonPage } from "@ionic/react";
+import MomentSelect from "../components/MomentSelect";
+
 const itemList = [
   {
     itemTitle: "Simulação 18#",
@@ -49,9 +53,26 @@ const itemList = [
 
 const PendingTaxes: React.FC = () => {
   return (
-    <>
-      <ListBox items={itemList}></ListBox>
-    </>
+    <IonPage>
+      {/* <IonContent> */}
+      <div>
+        <MomentSelect
+          title="Ano"
+          items={["2020", "2021", "2022"]}
+        ></MomentSelect>
+      </div>
+      <ListTabNavigator
+        buttonList={[
+          { text: "my text", onClickHandler: () => {} },
+          { text: "my text", onClickHandler: () => {} },
+          { text: "my text", onClickHandler: () => {} },
+          { text: "my text", onClickHandler: () => {} },
+        ]}
+      />
+      <ListBox items={itemList} />
+
+      {/* </IonContent> */}
+    </IonPage>
   );
 };
 
