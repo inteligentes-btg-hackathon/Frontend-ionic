@@ -1,0 +1,96 @@
+.stock-item {
+  border-radius: 0 6px 6px 0;
+  height: 5em;
+  color: #4c535d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.green-mark {
+  border-left: #41e396 solid 4px;
+}
+
+.red-mark {
+  border-left: #fa6450 solid 4px;
+}
+
+ion-item {
+  box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.15);
+  --padding-start: 0px;
+  --ion-safe-area-left: 0px;
+  --padding-end: 0px;
+  --inner-padding-end: 0px;
+}
+
+.right-section-stock {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 1.4em;
+}
+
+.left-section-stock {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 10em;
+}
+
+.date-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 6px;
+  min-height: 4em;
+  min-width: 4em;
+  box-shadow: 0px 0px 186px rgba(0, 0, 0, 0.5);
+  margin-right: 0.8em;
+}
+
+.block-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  width: 100%;
+}
+
+.date-title {
+  font-weight: 600;
+  margin: 0;
+}
+.date-month {
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin: 0;
+}
+
+.stock-item {
+  margin: 1em;
+}
+
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-text {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}

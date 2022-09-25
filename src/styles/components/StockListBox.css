@@ -1,0 +1,18 @@
+.ion-list-background {
+  background-color: #fafafa;
+  /* overflow: scroll; */
+}
+
+.list-wrapper {
+  background-color: #fafafa;
+  /* height: 100%; */
+}
+
+
+.content-box {
+ background-color: rebeccapurple; 
+}
+
+ion-list {
+overflow: auto;
+}
