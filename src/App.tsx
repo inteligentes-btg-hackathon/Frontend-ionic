@@ -2,7 +2,7 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import ViewMessage from "./pages/ViewMessage";
-import HistoricalDarf from "./pages/historicalDarf"
+import HistoricalDarf from "./pages/historicalDarf";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -26,9 +26,10 @@ import AccessOpenInvestment from "./pages/accessOpenInvestment";
 import LoadingDarf from "./pages/LoadingDarf";
 import PendingTaxes from "./pages/pendingTaxes";
 import StockTransactions from "./pages/stockTransactions";
-import SuccessDarf from "./pages/successDarf"
+import SuccessDarf from "./pages/successDarf";
 import Login from "./pages/login";
 import Home from "./pages/home";
+import DashboardDarf from "./pages/dashboardDarf";
 
 setupIonicReact();
 
@@ -58,10 +59,13 @@ const App: React.FC = () => (
           <PendingTaxes />
         </Route>
         <Route path="/successDarf" exact={true}>
-          <SuccessDarf/>
+          <SuccessDarf />
         </Route>
         <Route path="/stockTransactions" exact={true}>
-          <StockTransactions/>
+          <StockTransactions />
+        </Route>
+        <Route path="/dashboardDarf" exact={true}>
+          <DashboardDarf />
         </Route>
         <Route path="/message/:id">
           <ViewMessage />
