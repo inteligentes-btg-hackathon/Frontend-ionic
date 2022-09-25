@@ -2,6 +2,7 @@ import "../../styles/components/headers/NavHeaderDefault.css";
 import { faArrowLeft, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IonHeader } from "@ionic/react";
+import { useHistory } from "react-router";
 
 interface NavHeaderDefaultProps {
   leftArrowClickHandler?: () => void;
@@ -23,13 +24,16 @@ const NavHeaderDefault: React.FC<NavHeaderDefaultProps> = ({
     headerDefaultClassname = "nav-header-end";
   }
 
+  const history = useHistory();
   return (
     <IonHeader className={`nav-header ${headerDefaultClassname}`}>
       {showLeftArrow && (
         <FontAwesomeIcon
           icon={faArrowLeft}
           className="nav-icon"
-          onClick={leftArrowClickHandler}
+          onClick={() => {
+            history.goBack();
+          }}
         />
       )}
       {showCloseButton && (

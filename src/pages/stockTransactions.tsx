@@ -1,4 +1,5 @@
 import { IonPage } from "@ionic/react";
+import { useHistory } from "react-router";
 import NavHeaderDefault from "../components/headers/NavHeaderDefault";
 import StockListBox from "../components/lists/StockListBox";
 import ListTabNavigator from "../components/ListTabNavigator";
@@ -58,6 +59,7 @@ const itemList = [
 ];
 
 const StockTransactions: React.FC = () => {
+  const history = useHistory();
   return (
     <IonPage>
       <NavHeaderDefault
@@ -65,7 +67,7 @@ const StockTransactions: React.FC = () => {
           alert("left click");
         }}
         closeIconClickHandler={() => {
-          alert("close-click");
+          history.goBack();
         }}
         showCloseButton
         showLeftArrow

@@ -32,51 +32,56 @@ import Home from "./pages/home";
 import DashboardDarf from "./pages/dashboardDarf";
 import SimulateDarf from "./pages/simulateDarf";
 
+// Import application provider
+import { ApplicationProvider } from "./contexts/ApplicationContext";
+
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" exact={true}>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" exact={true}>
-          <Home />
-        </Route>
-        <Route path="/login" exact={true}>
-          <Login />
-        </Route>
-        <Route path="/openInvestment" exact={true}>
-          <AccessOpenInvestment />
-        </Route>
-        <Route path="/historicalDarf" exact={true}>
-          <HistoricalDarf />
-        </Route>
-        <Route path="/loading" exact={true}>
-          <LoadingDarf />
-        </Route>
-        <Route path="/pendingTaxes" exact={true}>
-          <PendingTaxes />
-        </Route>
-        <Route path="/successDarf" exact={true}>
-          <SuccessDarf />
-        </Route>
-        <Route path="/stockTransactions" exact={true}>
-          <StockTransactions />
-        </Route>
-        <Route path="/simulate" exact={true}>
-          <SimulateDarf />
-        </Route>
-        <Route path="/dashboardDarf" exact={true}>
-          <DashboardDarf />
-        </Route>
-        <Route path="/message/:id">
-          <ViewMessage />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+  <ApplicationProvider>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/" exact={true}>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home" exact={true}>
+            <Home />
+          </Route>
+          <Route path="/login" exact={true}>
+            <Login />
+          </Route>
+          <Route path="/openInvestment" exact={true}>
+            <AccessOpenInvestment />
+          </Route>
+          <Route path="/historicalDarf" exact={true}>
+            <HistoricalDarf />
+          </Route>
+          <Route path="/loading" exact={true}>
+            <LoadingDarf />
+          </Route>
+          <Route path="/pendingTaxes" exact={true}>
+            <PendingTaxes />
+          </Route>
+          <Route path="/successDarf" exact={true}>
+            <SuccessDarf />
+          </Route>
+          <Route path="/stockTransactions" exact={true}>
+            <StockTransactions />
+          </Route>
+          <Route path="/simulate" exact={true}>
+            <SimulateDarf />
+          </Route>
+          <Route path="/dashboardDarf" exact={true}>
+            <DashboardDarf />
+          </Route>
+          <Route path="/message/:id">
+            <ViewMessage />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  </ApplicationProvider>
 );
 
 export default App;
