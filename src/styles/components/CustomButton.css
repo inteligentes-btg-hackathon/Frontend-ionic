@@ -1,0 +1,23 @@
+.squared-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 7em;
+  width: 7em;
+  padding: 1em;
+  border-radius: 6px;
+  background-color: #195ab4;
+  color: white;
+}
+
+.button-icon {
+  font-size: 2rem;
+  padding: 0.2em;
+}
+
+.button-text {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
