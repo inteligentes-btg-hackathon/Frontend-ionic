@@ -16,7 +16,7 @@ const InformativeFooter: React.FC<InformativeFooterProps> = ({
   footerActionElement,
 }) => {
   return (
-    <>
+    <div>
       <IonHeader className="block-header">
         <h5>{footerTitle}</h5>
         {footerIcon}
@@ -26,7 +26,7 @@ const InformativeFooter: React.FC<InformativeFooterProps> = ({
         <h6 className="block-text">{footerText}</h6>
         <IonFooter className="block-footer">{footerActionElement}</IonFooter>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import Home from "./pages/home";
 import ViewMessage from "./pages/ViewMessage";
 import HistoricalDarf from "./pages/historicalDarf"
 
@@ -28,6 +27,8 @@ import LoadingDarf from "./pages/LoadingDarf";
 import PendingTaxes from "./pages/pendingTaxes";
 import StockTransactions from "./pages/stockTransactions";
 import SuccessDarf from "./pages/successDarf"
+import Login from "./pages/login";
+import Home from "./pages/home";
 
 setupIonicReact();
 
@@ -40,6 +41,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/home" exact={true}>
           <Home />
+        </Route>
+        <Route path="/login" exact={true}>
+          <Login />
         </Route>
         <Route path="/openInvestment" exact={true}>
           <AccessOpenInvestment />

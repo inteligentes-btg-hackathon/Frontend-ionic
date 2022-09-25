@@ -1,0 +1,31 @@
+.informative-content-block {
+  padding-bottom: 3.2em;
+  text-align: left;
+  /* background-color: red; */
+}
+
+.informative-content-border {
+  border-bottom: 1px solid white;
+}
+
+.follow-taxes-button {
+  margin-top: 1.2em;
+  width: 8em;
+}
+
+.informative-block-top > h3,
+h6 {
+  text-align: left;
+  /* margin: 0.4em; */
+  padding: 0;
+}
+
+
+.informative-insight-info {
+  margin-top: 0.8em;
+}
+
+.content-block {
+  display: flex;
+  padding: 2em;
+}
