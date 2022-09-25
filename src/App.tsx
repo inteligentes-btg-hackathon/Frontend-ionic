@@ -30,6 +30,7 @@ import SuccessDarf from "./pages/successDarf";
 import Login from "./pages/login";
 import Home from "./pages/home";
 import DashboardDarf from "./pages/dashboardDarf";
+import SimulateDarf from "./pages/simulateDarf";
 
 setupIonicReact();
 
@@ -63,6 +64,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/stockTransactions" exact={true}>
           <StockTransactions />
+        </Route>
+        <Route path="/simulate" exact={true}>
+          <SimulateDarf />
         </Route>
         <Route path="/dashboardDarf" exact={true}>
           <DashboardDarf />
