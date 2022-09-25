@@ -20,10 +20,13 @@ const ListTabNavigator: React.FC<ListTabProps> = ({ buttonList }) => {
   return (
     <div>
       <div className={hNavClass}>
-        <div className="horizontal-btn">My Button</div>
-        <div className="horizontal-btn">My Button</div>
-        <div className="horizontal-btn">My Button</div>
-        <div className="horizontal-btn">My Button</div>
+        {buttonList.map((button) => {
+          return (
+            <div className="horizontal-btn" onClick={button.onClickHandler}>
+              {button.text}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

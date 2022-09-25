@@ -1,0 +1,8 @@
+.tax-fee-info {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
