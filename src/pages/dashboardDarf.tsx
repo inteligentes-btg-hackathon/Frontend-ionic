@@ -14,7 +14,7 @@ import "../styles/dashboardDarf.css";
 const DashboardDarf: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader className="nav-header">
+      <IonHeader className="nav-header-dashboard">
         <h3>Controle DARF</h3>
         <FontAwesomeIcon icon={faClose} className="nav-icon" />
       </IonHeader>

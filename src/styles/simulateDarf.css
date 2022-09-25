@@ -1,0 +1,46 @@
+.blockIcon-darf {
+  font-size: 5rem;
+}
+
+.downloadBlock-darf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+}
+
+.downloadBlockIcon-darf {
+  font-size: 1.5em;
+  padding: 0.5em;
+  padding-bottom: 0.3em;
+}
+.page-content-darf {
+  padding-top: 10em;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.confirm-darf-icon {
+  font-size: 4.5em;
+}
+
+.simulate-darf-footer {
+  display: flex;
+  justify-content: end;
+  padding: 2em;
+  padding-right: 2.5em;
+}
+
+/* .simulate-darf-moment {
+  background-color: transparent;
+} */
+
+.simulate-darf-moment {
+  display: flex;  
+}
+
