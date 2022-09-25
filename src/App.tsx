@@ -27,6 +27,7 @@ import AccessOpenInvestment from "./pages/accessOpenInvestment";
 import LoadingDarf from "./pages/LoadingDarf";
 import PendingTaxes from "./pages/pendingTaxes";
 import StockTransactions from "./pages/stockTransactions";
+import SuccessDarf from "./pages/successDarf"
 
 setupIonicReact();
 
@@ -52,8 +53,8 @@ const App: React.FC = () => (
         <Route path="/pendingTaxes" exact={true}>
           <PendingTaxes />
         </Route>
-        <Route path="/stockTransactions" exact={true}>
-          <StockTransactions/>
+        <Route path="/successDarf" exact={true}>
+          <SuccessDarf/>
         </Route>
         <Route path="/message/:id">
           <ViewMessage />
