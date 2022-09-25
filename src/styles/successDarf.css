@@ -1,0 +1,47 @@
+/* .Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4em;
+}
+/*/
+.blockIcon {
+  font-size: 5rem;
+}
+/*/
+.IconCheck {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  text-align: center;
+  padding: 3em;
+}
+
+.BlockSubtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/*/
+.downloadBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+}
+
+.downloadBlockIcon{
+  font-size: 1.5em;
+  padding: 0.5em;
+  padding-bottom: 0.3em;
+} 
+.page-content {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+}
