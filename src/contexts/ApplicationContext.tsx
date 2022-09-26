@@ -1,14 +1,11 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { ListItemStockProps } from "../components/lists/ListItemStock";
+import { FileOpener } from "@ionic-native/file-opener";
 
-import { getStockTransactionsRecords } from "../data/facilita";
-// import {
-//   ILogin,
-//   IRegister,
-//   login,
-//   register,
-//   verifyToken,
-// } from "../services/Application";
+import {
+  generateDarfSimulation,
+  getStockTransactionsRecords,
+} from "../data/facilita";
 
 export interface IChildren {
   children?: React.ReactNode;
@@ -34,17 +31,23 @@ export interface IProviderValue {
   getStockTransactionHistory: (date: string) => void;
   stockTransactionHistory: Array<ListItemStockProps>;
   stockTransactionOptionList: string[];
+  loading: boolean;
+  simulatedDarfLink: string;
+  generateDarf: (date: string) => void;
 }
 
 export const ApplicationContext = createContext({} as IProviderValue);
 
 export function ApplicationProvider({ children }: IChildren) {
-  const [currentCustomerId, setCurrentCustomerId] = useState("44801389864");
-  const [lastMonthTaxAmount, setLastMonthTaxAmount] = useState(0.0);
-  const [lastMonthProfitAmount, setLastMonthProfiAmount] = useState(0.0);
-  const [lastMonthPercentageInsight, setLastMonthPercentageInsight] =
-    useState(0);
+  const [loading, setLoading] = useState(false);
 
+  const [currentCustomerId, setCurrentCustomerId] = useState("44801389864");
+  const [lastMonthTaxAmount, setLastMonthTaxAmount] = useState(2003.00);
+  const [lastMonthProfitAmount, setLastMonthProfiAmount] = useState(12.000);
+  const [lastMonthPercentageInsight, setLastMonthPercentageInsight] =
+    useState(10);
+
+  const [simulatedDarfLink, setSimulatedDarfLink] = useState("");
   const [hasPendingDarf, setHasPendingDarf] = useState(true);
   const [stockTransactionHistory, setTransactionHistory] = useState<any>([]);
   const [stockTransactionOptionList, setStockTransactionOptionList] = useState<
@@ -81,6 +84,17 @@ export function ApplicationProvider({ children }: IChildren) {
     setStockTransactionOptionList(processedTransactionOptions);
   }
 
+  async function generateDarf(date: string) {
+    console.log(123);
+    setLoading(true);
+    const pdfData = await generateDarfSimulation({
+      customerId: currentCustomerId,
+      date,
+    });
+    setSimulatedDarfLink(pdfData);
+    setLoading(false);
+  }
+
   const memoedValue = useMemo(
     () => ({
       lastMonthTaxAmount,
@@ -90,6 +104,9 @@ export function ApplicationProvider({ children }: IChildren) {
       getStockTransactionHistory,
       stockTransactionHistory,
       stockTransactionOptionList,
+      loading,
+      simulatedDarfLink,
+      generateDarf,
     }),
     [hasPendingDarf, stockTransactionHistory]
   );

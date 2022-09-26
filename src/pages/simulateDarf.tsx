@@ -7,17 +7,23 @@ import NavHeaderDefault from "../components/headers/NavHeaderDefault";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/simulateDarf.css";
+import { useHistory } from "react-router";
+import { ApplicationContext } from "../contexts/ApplicationContext";
+import { useContext } from "react";
 
 const SimulateDarf: React.FC<{}> = ({}) => {
+  const history = useHistory();
+  const { generateDarf, simulatedDarfLink } = useContext(ApplicationContext);
+
   return (
     <>
       <IonPage>
         <NavHeaderDefault
           leftArrowClickHandler={() => {
-            alert("left click");
+            history.goBack();
           }}
           closeIconClickHandler={() => {
-            alert("close-click");
+            history.push("/dashboardDarf");
           }}
           showLeftArrow
           showCloseButton
@@ -36,6 +42,10 @@ const SimulateDarf: React.FC<{}> = ({}) => {
           <FontAwesomeIcon
             icon={faCircleCheck}
             className={"confirm-darf-icon "}
+            onClick={async () => {
+              await generateDarf("2023-02");
+              console.log(simulatedDarfLink);
+            }}
           />
         </IonFooter>
       </IonPage>

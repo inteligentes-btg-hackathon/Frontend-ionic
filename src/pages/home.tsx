@@ -53,7 +53,7 @@ const Home: React.FC = () => {
     hasPendingDarf,
   } = useContext(ApplicationContext);
 
-  const PendingDarfInformativeElement = (next :any) => {
+  const PendingDarfInformativeElement = (next: any) => {
     return (
       <InformativeFooter
         footerTitle="Tributos Pendentes"

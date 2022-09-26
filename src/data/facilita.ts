@@ -17,3 +17,14 @@ export async function getStockTransactionsRecords({
 
   return data.data;
 }
+
+export async function generateDarfSimulation({
+  customerId,
+  date,
+}: GetStockTransactionsRecordsProps) {
+  const data = await axios.get(
+    `${API.API_BASE}/darf?customer_id=${customerId}&date=${date}`
+  );
+
+  return data.data;
+}
