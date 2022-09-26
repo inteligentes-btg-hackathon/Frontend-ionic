@@ -2,12 +2,21 @@ import { IonItem, IonList, IonSelect, IonSelectOption } from "@ionic/react";
 
 import "../styles/components/MomentSelect.css";
 
+interface MomentItem {
+  title: string;
+  value: string | number;
+}
 interface MomentSelectProps {
   title: string;
-  items: Array<string>;
+  items: Array<MomentItem>;
+  onIonChangeHandler: ({}: any) => void;
 }
 
-const MomentSelect: React.FC<MomentSelectProps> = ({ items, title }) => {
+const MomentSelect: React.FC<MomentSelectProps> = ({
+  items,
+  title,
+  onIonChangeHandler,
+}) => {
   return (
     <div className="contentBlock">
       <h3>{title}</h3>
@@ -16,11 +25,14 @@ const MomentSelect: React.FC<MomentSelectProps> = ({ items, title }) => {
           interface="action-sheet"
           placeholder="Selecione o ano"
           className="item-select"
+          onIonChange={(e) => {
+            onIonChangeHandler(e.detail.value);
+          }}
         >
           {items.map((item) => {
             return (
-              <IonSelectOption value={item} className="teste">
-                {item}
+              <IonSelectOption value={item.value} className="teste">
+                {item.title}
               </IonSelectOption>
             );
           })}

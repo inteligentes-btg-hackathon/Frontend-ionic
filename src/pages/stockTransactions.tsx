@@ -1,92 +1,111 @@
-import { IonPage } from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
+import { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import NavHeaderDefault from "../components/headers/NavHeaderDefault";
+import { ListItemStockProps } from "../components/lists/ListItemStock";
 import StockListBox from "../components/lists/StockListBox";
-import ListTabNavigator from "../components/ListTabNavigator";
+import ListTabNavigator, {
+  ButtonElement,
+} from "../components/ListTabNavigator";
 import MomentSelect from "../components/MomentSelect";
+import { ApplicationContext } from "../contexts/ApplicationContext";
 
 import "../styles/stockTransactions.css";
 
-const itemList = [
-  {
-    itemTitle: "BRKM5",
-    itemSubtitle: "Braskem S.A.",
-    itemTransactionResult: "500.000,00",
-    isLoss: false,
-  },
-  {
-    itemTitle: "GOGL34",
-    itemSubtitle: "09/09/2022",
-    itemTransactionResult: "12.000,00",
-    isLoss: true,
-  },
-  {
-    itemTitle: "Tesla, Inc.",
-    itemSubtitle: "08/09/2022",
-    itemTransactionResult: "8.000,00",
-    isLoss: false,
-  },
-  {
-    itemTitle: "Simulação 15#",
-    itemSubtitle: "10/07/2022",
-    itemTransactionResult: "500.000,00",
-    isLoss: false,
-  },
-  {
-    itemTitle: "Simulação 14#",
-    itemSubtitle: "10/06/2022",
-    itemTransactionResult: "500.000",
-    isLoss: true,
-  },
-  {
-    itemTitle: "Simulação 13#",
-    itemSubtitle: "10/05/2022",
-    itemTransactionResult: "500.000,00",
-    isLoss: false,
-  },
-  {
-    itemTitle: "Simulação 12#",
-    itemSubtitle: "10/04/2022",
-    itemTransactionResult: "500.000,00",
-    isLoss: false,
-  },
-  {
-    itemTitle: "Simulação 11#",
-    itemSubtitle: "10/03/2022",
-    itemTransactionResult: "500.000,00",
-    isLoss: true,
-  },
-];
-
 const StockTransactions: React.FC = () => {
+  const history = useHistory();
+
+  //Context
+  const {
+    getStockTransactionHistory,
+    stockTransactionHistory,
+    stockTransactionOptionList,
+  } = useContext(ApplicationContext);
+
+  // State
+  const [selectedPeriod, setSelectedPeriod] = useState("");
+  const [typeTransactionList, setTypeTransactionList] = useState<
+    ListItemStockProps[]
+  >([]);
+  const [buttonListState, setButtonListState] = useState([
+    { text: "Carregando", onClickHandler: () => {} },
+  ]);
+
+  // React API
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const defaultPeriod = `${year}-${month}`;
+    setSelectedPeriod(defaultPeriod);
+    getStockTransactionHistory(selectedPeriod);
+  }, []);
+
+  useEffect(() => {
+    setTypeTransactionList(stockTransactionHistory);
+  }, [stockTransactionHistory]);
+
+  // Handlers
+  const filterTransactionByTypeHandler = (transactionType: string) => {
+    const filteredTransactionList = stockTransactionHistory.filter((item) => {
+      return item.itemType == transactionType;
+    });
+    setTypeTransactionList(filteredTransactionList);
+  };
+
+  useEffect(() => {
+    let buttonList: ButtonElement[] = [
+      {
+        text: "Todas as Operações",
+        onClickHandler: () => {
+          setTypeTransactionList(stockTransactionHistory);
+        },
+      },
+    ];
+    stockTransactionOptionList?.forEach((transactionType) => {
+      const cleanText = transactionType.replace("_", " ");
+      buttonList.push({
+        text: cleanText.charAt(0).toUpperCase() + cleanText.slice(1),
+        onClickHandler: () => {
+          filterTransactionByTypeHandler(transactionType);
+        },
+      });
+    });
+    setButtonListState(buttonList);
+  }, [stockTransactionOptionList]);
+
   return (
     <IonPage>
-      <NavHeaderDefault
-        leftArrowClickHandler={() => {
-          alert("left click");
-        }}
-        closeIconClickHandler={() => {
-          alert("close-click");
-        }}
-        showCloseButton
-        showLeftArrow
-      />
-      <MomentSelect
-        title="Selecione o período:"
-        items={["Dezembro/2019", "Janeiro/2020"]}
-      />
-      <ListTabNavigator
-        buttonList={[
-          { text: "Todas as Operações", onClickHandler: () => {} },
-          { text: "BDR's", onClickHandler: () => {} },
-          { text: "Swing Trade", onClickHandler: () => {} },
-          { text: "Day Trade", onClickHandler: () => {} },
-        ]}
-      />
-      <div className="tax-fee-info">
-        <h5>Total de Impostos: R$ 12.000,00</h5>
-      </div>
+      <IonContent>
+        <NavHeaderDefault
+          leftArrowClickHandler={() => {
+            alert("left click");
+          }}
+          closeIconClickHandler={() => {
+            history.goBack();
+          }}
+          showCloseButton
+          showLeftArrow
+        />
+        <MomentSelect
+          title="Selecione o período:"
+          items={[
+            { title: "Novembro/2022", value: "2022-11" },
+            { title: "Dezembro/2022", value: "2022-12" },
+            { title: "Janeiro/2023", value: "2023-01" },
+            { title: "Fevereiro/2023", value: "2023-02" },
+            { title: "Março/2023", value: "2023-03" },
+            { title: "Abril/2023", value: "2023-04" },
+          ]}
+          onIonChangeHandler={getStockTransactionHistory}
+        />
+        <ListTabNavigator buttonList={buttonListState} />
+        <div className="tax-fee-info">
+          <h5>Total de Impostos: R$ 12.000,00</h5>
+        </div>
 
-      <StockListBox items={itemList} />
+        <StockListBox items={typeTransactionList} />
+      </IonContent>
     </IonPage>
   );
 };

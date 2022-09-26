@@ -10,35 +10,43 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import CustomButton from "../components/buttons/customButton";
 import "../styles/dashboardDarf.css";
+import { useHistory } from "react-router";
 
 const DashboardDarf: React.FC = () => {
+  const history = useHistory();
   return (
     <IonPage>
       <IonHeader className="nav-header-dashboard">
         <h3>Controle DARF</h3>
-        <FontAwesomeIcon icon={faClose} className="nav-icon" />
+        <FontAwesomeIcon
+          icon={faClose}
+          className="nav-icon"
+          onClick={() => {
+            history.replace("/home");
+          }}
+        />
       </IonHeader>
 
       <div className="container">
         <CustomButton
           text={"Simular DARF"}
           IconElement={faFileInvoice}
-          onclickHandler={function (): void {
-            throw new Error("Function not implemented.");
+          onclickHandler={() => {
+            history.push("/simulate");
           }}
         />
         <CustomButton
           text={"Histórico de Simulações"}
           IconElement={faClockRotateLeft}
-          onclickHandler={function (): void {
-            throw new Error("Function not implemented.");
+          onclickHandler={() => {
+            history.push("/historicalDarf");
           }}
         />
         <CustomButton
           text={"Realizar Pagamento"}
           IconElement={faFileInvoiceDollar}
-          onclickHandler={function (): void {
-            throw new Error("Function not implemented.");
+          onclickHandler={() => {
+            history.push("/pendingTaxes");
           }}
         />
       </div>

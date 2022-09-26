@@ -1,15 +1,9 @@
 import { IonList } from "@ionic/react";
 import "../../styles/components/StockListBox.css";
-import ListItemStock from "./ListItemStock";
-
-interface Item {
-  itemTitle: string;
-  itemTransactionResult: string;
-  isLoss: boolean;
-}
+import ListItemStock, { ListItemStockProps } from "./ListItemStock";
 
 interface StockListBoxProps {
-  items: Item[];
+  items: Array<ListItemStockProps>;
 }
 
 const StockListBox: React.FC<StockListBoxProps> = ({ items }) => {
@@ -22,6 +16,8 @@ const StockListBox: React.FC<StockListBoxProps> = ({ items }) => {
               key={i}
               itemTitle={item.itemTitle}
               itemTransactionResult={item.itemTransactionResult}
+              itemMonth={item.itemMonth}
+              itemDay={item.itemDay}
               isLoss={item.isLoss}
             />
           );

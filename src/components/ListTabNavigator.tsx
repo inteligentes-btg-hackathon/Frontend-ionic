@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IonContent, IonHeader, IonItem } from "@ionic/react";
 import "../styles/components/ListTabNavigator.css";
 
-interface ButtonElement {
+export interface ButtonElement {
   text: string;
   onClickHandler: () => void;
 }
