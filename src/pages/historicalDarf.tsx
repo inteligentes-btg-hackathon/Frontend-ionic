@@ -69,7 +69,8 @@ const HistoricalDarf: React.FC = () => {
       <div>
         <MomentSelect
           title="Ano"
-          items={["2020", "2021", "2022"]}
+          items={[{ title: "2020", value: "2021" }]}
+          onIonChangeHandler={() => {}}
         ></MomentSelect>
       </div>
       <ListTabNavigator
@@ -78,8 +79,6 @@ const HistoricalDarf: React.FC = () => {
         ]}
       />
       <ListBox items={itemList} />
-
-      {/* </IonContent> */}
     </IonPage>
   );
 };

@@ -1,15 +1,20 @@
 import { IonItem } from "@ionic/react";
 import "../../styles/components/ListItemStock.css";
 
-interface ListItemStockProps {
+export interface ListItemStockProps {
   itemTitle: string;
   itemTransactionResult: string;
+  itemMonth: string;
+  itemDay: string;
+  itemType?: string;
   isLoss: boolean;
 }
 
 const ListItemStock: React.FC<ListItemStockProps> = ({
   itemTitle,
   itemTransactionResult,
+  itemMonth,
+  itemDay,
   isLoss,
 }) => {
   let stockMark = "green-mark";
@@ -22,8 +27,8 @@ const ListItemStock: React.FC<ListItemStockProps> = ({
       <div className="block-section">
         <div className="left-section-stock">
           <div className="date-box">
-            <h5 className="date-title">12</h5>
-            <h6 className="date-month">Dez</h6>
+            <h5 className="date-title">{itemDay}</h5>
+            <h6 className="date-month">{itemMonth}</h6>
           </div>
           <div className="info-block">
             <h5 className="title">{itemTitle}</h5>
